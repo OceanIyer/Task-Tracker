@@ -2,21 +2,21 @@
     {
         "id": 1,
         "title": "Complete Task Tracker",
-        "status": "incomplete",
+        "status": "pending",
         "description": "Complete coding task manager and learn how it works",
         "created_at": "2025-09-11T01:00:06.963583"
     },
     {
         "id": 2,
         "title": "Add list item to task manager",
-        "status": "incomplete",
+        "status": "pending",
         "description": "add an option to list out all tasks",
         "created_at": "2025-09-11T01:00:35.730611"
     },
     {
         "id": 3,
         "title": "Time created option",
-        "status": "incomplete",
+        "status": "pending",
         "description": "add a time created option to view the date and time a task was created",
         "created_at": "2025-09-11T01:01:06.561970"
     }

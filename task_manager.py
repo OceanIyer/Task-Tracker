@@ -26,7 +26,7 @@ while True:
         exit()
     elif command == "add":
         title = input("Enter task title: ")
-        status = input("Enter task status: ")
+        status = input("Enter task status (completed/pending): ")
         description = input("Enter task description: ")
 
         if len(tasks) == 0:
@@ -89,5 +89,23 @@ while True:
         if tasks == []:
             print("No tasks available.")
         else:
-            for task in tasks:
-                print(f"ID: {task['id']}, Title: {task['title']}, Status: {task['status']}, Description: {task['description']}, Created At: {task['created_at']}")
+            type = input("Enter type of tasks to list (all/completed/pending): ").strip().lower()
+            if type == "all":
+                for task in tasks:
+                    print(f"ID: {task['id']}, Title: {task['title']}, Status: {task['status']}, Description: {task['description']}, Created At: {task['created_at']}")
+            elif type == "completed":
+                for task in tasks:
+                    if task['status'].lower() == 'completed':
+                        print(f"ID: {task['id']}, Title: {task['title']}, Status: {task['status']}, Description: {task['description']}, Created At: {task['created_at']}")
+                else:
+                    print("No completed tasks available.")
+            elif type == "pending":
+                for task in tasks:
+                    if task['status'].lower() == 'pending':
+                        print(f"ID: {task['id']}, Title: {task['title']}, Status: {task['status']}, Description: {task['description']}, Created At: {task['created_at']}")
+                else:
+                    print("No pending tasks available.")
+            else:
+                print("Invalid type. Please enter all, completed, or pending.")
+    else:
+        print("Invalid command. Type 'help' to see the list of commands.")
