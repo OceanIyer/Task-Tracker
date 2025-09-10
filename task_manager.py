@@ -19,6 +19,7 @@ while True:
         print("add - Add a new task")
         print("edit - Edit an existing task")
         print("delete - Delete a task")
+        print("list - List all tasks")
         print("exit - Exit the program")
     elif command == "exit":
         print("Exiting the program.")
@@ -83,3 +84,10 @@ while True:
                     break
         else:
             print("Task ID not found.")
+
+    elif command == "list":
+        if tasks == []:
+            print("No tasks available.")
+        else:
+            for task in tasks:
+                print(f"ID: {task['id']}, Title: {task['title']}, Status: {task['status']}, Description: {task['description']}, Created At: {task['created_at']}")
