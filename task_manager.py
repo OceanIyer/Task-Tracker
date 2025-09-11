@@ -10,7 +10,11 @@ except FileNotFoundError:
     print("No existing task file found. A new one will be created.")
 
 def add_task(tasks):
-        title = input("Enter task title: ")
+        raw_input = input("Enter task title: ")
+        if raw_input == "back":
+             return
+        else:
+             title = raw_input
         status = input("Enter task status (completed/pending): ")
         description = input("Enter task description: ")
 
@@ -70,13 +74,18 @@ def help_menu(tasks):
         print("edit - Edit an existing task")
         print("delete - Delete a task")
         print("list - List all tasks")
+        print("back - Return to main menu")
         print("exit - Exit the program")
 def exit_program(tasks):
         print("Exiting the program.")
         exit()
 def delete_task(tasks):
         print("Current tasks:", [f"ID: {task['id']}, Title: {task['title']}" for task in tasks])
-        id = int(input("Enter task ID to delete: "))
+        raw_input = input("Enter task ID to delete: ")
+        if raw_input == "back":
+             return
+        else:
+             id = int(raw_input)
         for task in tasks:
             if task['id'] == id:
                 tasks.remove(task)
@@ -91,7 +100,9 @@ def list_tasks(tasks):
                 print("No tasks available.")
             else:
                 type = input("Enter type of tasks to list (all/completed/pending/back): ").strip().lower()
-                if type == "all":
+                if type == 'back':
+                     return
+                elif type == "all":
                     for task in tasks:
                         print(f"ID: {task['id']}, Title: {task['title']}, Status: {task['status']}, Description: {task['description']}, Created At: {task['created_at']}")
                 elif type == "completed":
